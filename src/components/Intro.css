@@ -1,0 +1,143 @@
+/* Intro.css */
+.intro-container {
+  font-family: 'Pretendard', sans-serif;
+  background-color: white;
+}
+
+/* 히어로 섹션: 배경 이미지 및 오버레이 텍스트 */
+.hero {
+  position: relative;
+  padding: 6rem 1rem;
+  background-image: url('../assets/Introbanner.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff; /* 흰색 텍스트 */
+  text-align: center;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* 어둡게 오버레이 */
+}
+.hero-title,
+.hero-subtitle {
+  position: relative; /* 오버레이 위에 표시 */
+  z-index: 1;
+}
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 0;
+}
+
+/* 섹션 제목 밑 강조선 */
+section h2 {
+  position: relative;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #333;
+}
+section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3rem;
+  height: 3px;
+  background: #007bff;
+}
+
+/* 서브 섹션 스타일 */
+.sub-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.sub-section.dark-bg {
+  background-color: #f8f9fa;
+  max-width: none;
+  padding: 4rem 0;
+}
+
+.section-header {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.dark-bg .section-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.section-header h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+/* 문제 제기 섹션 */
+
+.problem-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+.problem-summary {
+  margin-top: 3rem;
+  color: #555;
+}
+
+/* 솔루션 흐름 */
+.flow {
+  display: flex;
+  gap: 10rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+.flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* 핵심 기능 그리드 */
+.feature-grid {
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 0 2rem;
+}
+.feature-card {
+  text-align: center;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0rem;
+}
+
+/* 샘플 이미지 */
+.sample-images {
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.sample-images img {
+  max-width: 45%;
+  max-width: 400px;
+  border-radius: 0.5rem;
+}

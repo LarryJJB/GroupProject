@@ -1,0 +1,10 @@
+Flask
+Flask-Cors
+ultralytics
+torch
+torchvision
+easyocr
+Pillow
+numpy
+pyngrok
+lap

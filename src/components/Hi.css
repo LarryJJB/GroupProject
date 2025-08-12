@@ -1,0 +1,113 @@
+/* Hi.css (수정 후) */
+
+/* ========================================
+    Hero 블록
+======================================== */
+
+.hi-hero__title {
+  font-size: 2.5rem; /* 폰트 크기 통일 */
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-top: 4rem; /* 상단 여백 추가 */
+  text-align: center; /* 중앙 정렬 */
+}
+
+.hi-hero__highlight {
+  color: var(--color-primary-blue, #007bff); /* 전역 변수 사용 */
+}
+
+.hi-hero__subtitle {
+  font-size: 1.2rem; /* 폰트 크기 통일 */
+  color: var(--color-text-light, #666);
+  max-width: 600px; /* 너무 길어지지 않게 중앙 정렬 */
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+
+/* ========================================
+    공용 섹션 제목 (가장 큰 변화!)
+======================================== */
+.section-title {
+  font-size: 2rem; /* 모든 섹션 제목 크기 통일 */
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 0.8rem;
+  margin-bottom: 2rem;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3rem;
+  height: 3px;
+  background: var(--color-primary-blue, #007bff);
+}
+
+
+/* ========================================
+    Greeting 블록
+======================================== */
+
+.greeting__text {
+  padding-top: 1rem;
+  font-size: 1.3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* ========================================
+    Values 블록
+======================================== */
+
+.values__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.values__card {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.values__card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary-blue, #007bff);
+  margin-bottom: 0.6rem;
+}
+
+
+/* ========================================
+    Vision-Mission 블록
+======================================== */
+.vision-mission {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.vision-mission__box {
+  flex: 1;
+  min-width: 100px;
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.vision-mission__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary-blue, #007bff);
+  margin-bottom: 0.8rem;
+}

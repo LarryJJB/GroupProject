@@ -1,0 +1,95 @@
+/* 🥨 === 디자인 변수 (Design Tokens) === */
+/* 기본은 다크 모드용 값으로 설정합니다. */
+:root {
+  /* ✒️ Fonts */
+  --font-family-sans: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  /* 📏 Sizing & Spacing */
+  --header-height-desktop: 90px;
+  --header-height-mobile: 60px;
+  --border-radius-default: 8px;
+
+  /* ✨ Effects */
+  --shadow-header: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-dropdown: 0 4px 16px rgba(0, 0, 0, 0.3);
+  --transition-default: all 0.25s;
+
+  /* ⚙️ Vite Default Settings */
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ☀️ 라이트 모드일 때 덮어 쓸 색상 변수들 */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-primary: #747bff;
+    --color-primary-hover: #535bf2;
+    --color-text-dark: #213547;
+    --color-text-base: #333;
+    --color-text-light: #666;
+    --color-background: white;
+    --color-background-subtle: white;
+    --color-background-hover: #e9ecef;
+    --color-border: white;
+    --shadow-header: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-dropdown: 0 4px 16px rgba(0, 0, 0, 0.07);
+  }
+}
+
+/* 🌍 === 전역 스타일 리셋 및 기본 태그 스타일 === */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: var(--font-family-sans);
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: var(--color-background);
+  color: var(--color-text-dark);
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: inherit;
+  transition: color 0.25s;
+}
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: var(--border-radius-default);
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--color-background-subtle);
+  color: var(--color-text-dark);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: var(--color-primary);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}

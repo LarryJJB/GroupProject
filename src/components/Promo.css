@@ -1,0 +1,140 @@
+.promo-container {
+  font-family: 'Pretendard', sans-serif;
+}
+
+.promo-video-placeholder {
+  position: relative;
+  height: 60vh;
+  background: url('https://placehold.co/1920x1080/2c3e50/ffffff?text=Tech+Background') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.video-content {
+  position: relative;
+  z-index: 1;
+}
+
+.video-content h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+.video-content p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+.play-button {
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1rem auto;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.play-button:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.video-content span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.tech-table {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tech-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  text-align: center;
+}
+
+.tech-row.header {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.tech-row div {
+  padding: 1rem;
+  border-bottom: 1px solid #dee2e6;
+  border-right: 1px solid #dee2e6;
+}
+.tech-row div:last-child {
+  border-right: none;
+}
+.tech-table .tech-row:last-child div {
+  border-bottom: none;
+}
+
+.effects-grid {
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+  max-width: 1200px;
+  padding: 0 2rem;
+}
+
+.effect-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.effect-highlight {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #007bff;
+  margin: 1rem 0;
+}
+
+.effect-card p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.timeline {
+  list-style: none;
+  padding-left: 1rem;
+  border-left: 3px solid #007bff;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0.5rem 0 1.5rem 1.5rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -9px;
+  top: 12px;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border: 3px solid #007bff;
+  border-radius: 50%;
+}
