@@ -27,7 +27,7 @@
 .main-content {
   display: flex;
   width: 100%;
-  max-width: 1200px; /* 너비 확장 */
+  max-width: 1500px; /* 너비 확장 */
   gap: 30px;
 }
 
@@ -69,6 +69,7 @@
   width: 100%;
   box-sizing: border-box;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .btn-primary {
@@ -138,7 +139,7 @@
   padding: 12px 8px;
   text-align: center;
   vertical-align: middle;
-  word-break: break-all;
+  white-space: nowrap;
 }
 
 .result-table th {
@@ -148,6 +149,9 @@
 
 .cropped-image {
   max-height: 40px;
+  max-width: 150px;
+  width: auto;
+  height: auto;
   border-radius: 4px;
   display: block;
   margin: 0 auto;
@@ -156,8 +160,18 @@
 /* Added from inline styles */
 .analyzed-image {
     border: 2px solid #007bff;
+    display: block;
+    margin: 0 auto;
 }
 
 .details-header {
     margin-top: 30px;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  margin-top: 20px;
 }

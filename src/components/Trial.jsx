@@ -109,38 +109,40 @@ export default function Trial({ navigate }) {
               
               <h2 className="details-header">탐지된 객체 상세 정보</h2>
               {detections.length > 0 ? (
-                <table className="result-table">
-                  <thead>
-                    <tr>
-                      <th>이미지</th>
-                      <th>ID</th>
-                      <th>추출된 텍스트</th>
-                      <th>라벨</th>
-                      <th>신뢰도</th>
-                      <th>좌표</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {detections.map((det) => (
-                      <tr key={det.id}>
-                        <td>
-                          <img 
-                            src={`data:image/jpeg;base64,${det.image}`} 
-                            alt={`det-${det.id}`} 
-                            className="cropped-image"
-                          />
-                        </td>
-                        <td>{det.id}</td>
-                        <td>
-                          <div className="scrollable-cell-text">{det.text}</div>
-                        </td>
-                        <td>{det.label}</td>
-                        <td>{(det.confidence * 100).toFixed(2)}%</td>
-                        <td>{det.coords}</td>
+                <div className="table-container">
+                  <table className="result-table">
+                    <thead>
+                      <tr>
+                        <th>이미지</th>
+                        <th>ID</th>
+                        <th>추출된 텍스트</th>
+                        <th>라벨</th>
+                        <th>신뢰도</th>
+                        <th>좌표</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {detections.map((det) => (
+                        <tr key={det.id}>
+                          <td>
+                            <img 
+                              src={`data:image/jpeg;base64,${det.image}`} 
+                              alt={`det-${det.id}`} 
+                              className="cropped-image"
+                            />
+                          </td>
+                          <td>{det.id}</td>
+                          <td>
+                            <div className="scrollable-cell-text">{det.text}</div>
+                          </td>
+                          <td>{det.label}</td>
+                          <td>{(det.confidence * 100).toFixed(2)}%</td>
+                          <td>{det.coords}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               ) : (
                 <p>이미지에서 객체를 탐지하지 못했습니다.</p>
               )}
