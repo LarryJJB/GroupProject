@@ -161,9 +161,9 @@ body {
 .form-precautions {
   width: 100%;
   box-sizing: border-box;
-  background-color: #001f7a;
+  background-color: white;
   font-size: 1em;
-  color: #f8f9fa;
+  color: black;
   text-align: left;
   padding-top: 4rem;
   padding-left: 5rem;

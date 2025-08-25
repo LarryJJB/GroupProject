@@ -2,7 +2,7 @@
 
 .header-wrapper {
   width: 100%;
-  background: #001f7a;
+  background: #f8f9fa;
   box-shadow: var(--shadow-header);
   position: sticky;
   top: 0;
@@ -22,14 +22,13 @@
 }
 
 .logo a {
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: bold;
-  color: #f8f9fa;
+  color: #001f7a;
   text-decoration: none;
 }
 .logo a:hover {
-  color: #c3c4c5;
-;
+  filter: brightness(1.4);
 }
 
 .nav {
@@ -49,14 +48,14 @@
 }
 
 .nav-title {
-  font-size: 1.07rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: #f8f9fa;
+  color: #001f7a;
   cursor: pointer;
   transition: color 0.2s ease-in-out;
 }
 .nav-title:hover {
-  color: #c3c4c5;
+  filter: brightness(1.4)
 ;
 }
 
@@ -65,11 +64,11 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 4rem;
+  margin-top: 3.1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
   width: max-content;
   opacity: 0;
   visibility: hidden;
@@ -78,15 +77,14 @@
 }
 
 .dropdown-link {
-  color: #c3c4c5;
+  color: rgb(255, 255, 255);
   text-decoration: none;
-  font-size: 0.98rem;
+  font-size: 1.2rem;
   white-space: nowrap;
   transition: color 0.2s ease-in-out;
 }
 .dropdown-link:hover {
-  color: #a3a3a3;
-
+  color: #001f7a;
 }
 
 .header-icons {
@@ -100,15 +98,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.35rem;
-  color: #f8f9fa;
+  font-size: 2rem;
+  color: #001f7a;
   cursor: pointer;
   padding: 0.2rem;
   border-radius: 50%;
   transition: background-color 0.15s ease-in-out;
 }
 .icon-button:hover {
-  color: #c3c4c5;
+  filter: brightness(1.4);
 }
 
 .mega-menu-background {
@@ -116,13 +114,13 @@
   top: var(--header-height-desktop);
   left: 0;
   width: 100%;
-  background-color: rgba(0, 40, 160, 0.9);
+  background-color: rgba(192, 192, 192, 0.726);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  border-top: 1px solid #001f7a;
   box-shadow: var(--shadow-dropdown);
   z-index: 1;
-  padding-bottom: 8rem;
+  padding-bottom: 9rem;
+  margin-bottom: 2rem;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
