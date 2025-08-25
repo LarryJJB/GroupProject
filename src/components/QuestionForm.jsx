@@ -6,7 +6,6 @@ const QuestionForm = ({onSubmit }) => {
     inquiryType: '환불',
     title: '',
     content: '',
-    contact: '',
     file: null
   });
 
@@ -31,8 +30,8 @@ const handleSubmit = (e) => {
   e.preventDefault();
 
   // 필수값 체크
-  if (!formData.title.trim() || !formData.content.trim() || !formData.contact.trim()) {
-    alert('제목, 내용, 이메일은 필수 입력사항입니다.');
+  if (!formData.title.trim()) {
+    alert('제목은 필수 입력사항입니다.');
     return;
   }
 
@@ -53,7 +52,6 @@ const handleSubmit = (e) => {
       inquiryType: '환불',
       title: '',
       content: '',
-      contact: '',
       file: null
     });
   };

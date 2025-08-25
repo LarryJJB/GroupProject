@@ -9,11 +9,6 @@
   --header-height-mobile: 60px;
   --border-radius-default: 8px;
 
-  /* ✨ Effects */
-  --shadow-header: 0 4px 16px rgba(0, 40, 160, 0.9);
-  --shadow-dropdown: 0 4px 16px rgba(0, 40, 160, 0.9);
-  --transition-default: all 0.3s;
-
   /* ⚙️ Vite Default Settings */
   color-scheme: light dark;
   font-synthesis: none;
