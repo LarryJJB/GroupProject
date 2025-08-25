@@ -12,7 +12,6 @@ const Join = ({ navigate }) => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [corpTel, setCorpTel] = useState('');
-  const [address, setAddress] = useState('');
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
   const [pw2, setPw2] = useState('');
@@ -35,7 +34,7 @@ const Join = ({ navigate }) => {
     // POST 요청
     try {
       const res = await axios.post('http://localhost:3001/userg/join', {
-        name, phone, email, corpTel, address, id, pw
+        name, phone, email, corpTel, id, pw
       });
       if (res.data.result === 1) {
         alert('회원가입 성공!');
@@ -62,8 +61,7 @@ const Join = ({ navigate }) => {
             <input type="tel" placeholder="연락처(휴대폰)" value={phone} onChange={e => setPhone(e.target.value)} required />
             <input type="email" placeholder="이메일" value={email} onChange={e => setEmail(e.target.value)} required />
             <input type="text" placeholder="[선택] 전화번호" value={corpTel} onChange={e => setCorpTel(e.target.value)} />
-            <input type="text" placeholder="집 주소" value={address} onChange={e => setAddress(e.target.value)} required />
-            <input type="text" placeholder="아이디 (영문+숫자)" value={id} onChange={e => setId(e.target.value)} required />
+            <input type="text" placeholder="아이디 (영문+숫자+특수문자)" value={id} onChange={e => setId(e.target.value)} required />
             <input type="password" placeholder="비밀번호" value={pw} onChange={e => setPw(e.target.value)} required />
             <input type="password" placeholder="비밀번호 확인" value={pw2} onChange={e => setPw2(e.target.value)} required />
             <div className="terms">
