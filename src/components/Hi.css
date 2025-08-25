@@ -3,26 +3,32 @@
 /* ========================================
     Hero 블록
 ======================================== */
+.hi-container {
+  font-family: 'Pretendard', sans-serif;
+  background-color: white;;
+}
+.hi-hero {
+  position: relative;
+  padding: 6rem 1rem;
+  background-image: url('../assets/companybanner.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #f8f9fa; /* 흰색 텍스트 */
+  text-align: center;
+}
 
-.hi-hero__title {
-  font-size: 2.5rem; /* 폰트 크기 통일 */
-  font-weight: 700;
-  margin-bottom: 1rem;
-  margin-top: 4rem; /* 상단 여백 추가 */
-  text-align: center; /* 중앙 정렬 */
+.hi-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* 어둡게 오버레이 */
 }
 
 .hi-hero__highlight {
-  color: var(--color-primary-blue, #007bff); /* 전역 변수 사용 */
-}
-
-.hi-hero__subtitle {
-  font-size: 1.2rem; /* 폰트 크기 통일 */
-  color: var(--color-text-light, #666);
-  max-width: 600px; /* 너무 길어지지 않게 중앙 정렬 */
-  margin: 0 auto;
-  text-align: center;
-  margin-bottom: 3rem;
+  color: var(--color-primary-blue, #001f7a); /* 전역 변수 사용 */
 }
 
 
@@ -45,7 +51,7 @@
   left: 0;
   width: 3rem;
   height: 3px;
-  background: var(--color-primary-blue, #007bff);
+  background: var(--color-primary-blue, #001f7a);
 }
 
 
@@ -82,7 +88,7 @@
 .values__card-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--color-primary-blue, #007bff);
+  color: var(--color-primary-blue, #001f7a);
   margin-bottom: 0.6rem;
 }
 
@@ -108,6 +114,6 @@
 .vision-mission__title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--color-primary-blue, #007bff);
+  color: var(--color-primary-blue, #001f7a);
   margin-bottom: 0.8rem;
 }

@@ -8,11 +8,21 @@
 .faq-hero {
   position: relative;
   padding: 6rem 1rem;
-  background-image: url('../assets/Faqbanner.jpg');
+  background-image: url('../assets/questionbanner.jpg');
   background-size: cover;
   background-position: center;
-  color: black; /* 흰색 텍스트 */
+  color: #f8f9fa; /* 흰색 텍스트 */
   text-align: center;
+}
+
+.faq-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* 어둡게 오버레이 */
 }
 
 .faq-list {
@@ -74,14 +84,10 @@
 .inquiry-link {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background-color: #007bff;
-  color: white;
+  background-color: #001f7a;
+  color: #f8f9fa;
   text-decoration: none;
   font-weight: 500;
   border-radius: 5px;
   transition: background-color 0.2s ease;
-}
-
-.inquiry-link:hover {
-  background-color: #0056b3;
 }

@@ -5,6 +5,7 @@ import { FiCpu, FiBarChart2, FiCalendar } from 'react-icons/fi';
 const Promo = () => {
   return (
     <div className="promo-container">
+      
       <section className="promo-video-placeholder">
         <div className="video-overlay"></div>
         <div className="video-content">

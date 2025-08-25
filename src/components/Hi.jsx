@@ -5,12 +5,12 @@ const Hi = () => {
   return (
     <div className="hi-container">
       {/* Hero 메시지 */}
-      <section className="sub-section dark-bg">
-        <h1 className="hi-hero__title">
+      <div className="hi-hero">
+        <h1 className="hero-title">
           환자의 안전을 지키는 <span className="hi-hero__highlight">작은 혁신</span>
         </h1>
-        <p className="hi-hero__subtitle">의약품 라벨 불량 판정의 새로운 기준을 만듭니다.</p>
-      </section>
+        <p className="hero-subtitle">의약품 라벨 불량 판정의 새로운 기준을 만듭니다.</p>
+      </div>
 
       {/* 인삿말 */}
       <section className="sub-section">

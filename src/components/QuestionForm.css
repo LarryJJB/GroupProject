@@ -85,7 +85,7 @@
   flex-wrap: wrap;
 }
 
-.type-button {
+.inquirytype-button {
   padding: 0.75rem 1.5rem;
   border: 2px solid #e9ecef;
   background: white;
@@ -97,15 +97,15 @@
   font-weight: 500;
 }
 
-.type-button:hover {
-  border-color: #007bff;
-  color: #007bff;
+.inquirytype-button:hover {
+  border-color: #001f7a;
+  color: #001f7a;
 }
 
-.type-button.active {
-  background: #007bff;
-  border-color: #007bff;
-  color: white;
+.inquirytype-button.active {
+  background: #001f7a;
+  border-color: #001f7a;
+  color: #f8f9fa;
 }
 
 /* 입력 필드 - PC 최적화 */
@@ -126,7 +126,7 @@
 .form-group input[type="text"]:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #007bff;
+  border-color: #001f7a;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
 }
 
@@ -165,7 +165,7 @@
 }
 
 .file-upload:hover .file-info {
-  border-color: #007bff;
+  border-color: #001f7a;
 }
 
 .file-placeholder {
@@ -174,7 +174,7 @@
 }
 
 .file-info span:not(.file-placeholder) {
-  color: #007bff;
+  color: #001f7a;
   font-weight: 500;
 }
 
@@ -194,18 +194,8 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
-}
-
-.submit-button {
-  background: #007bff;
-  color: white;
-  min-width: 120px;
-}
-
-.submit-button:hover {
-  background: #0056b3;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  background: #001f7a;
+  color: #f8f9fa;
 }
 
 /* 반응형 디자인 */

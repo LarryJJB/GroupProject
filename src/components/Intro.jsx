@@ -14,21 +14,21 @@ import {
   FiExternalLink,
 } from 'react-icons/fi';
 
-const ICON_COLOR = '#007bff';
+const ICON_COLOR = '#001f7a';
 const DISABLED_ICON_COLOR = '#6c757d'; // 회색
 
 const Intro = () => {
   return (
     <main className="intro-container">
       {/* 히어로 섹션 */}
-      <section className="intro-hero">
+      <div className="intro-hero">
         <h1 className="hero-title">
           AI가 의약품 라벨 불량을 단 1초 만에 감지합니다
         </h1>
         <p className="hero-subtitle">
           사람의 눈으로 놓치기 쉬운 오류도, AI는 놓치지 않습니다.
         </p>
-      </section>
+      </div>
 
       {/* 문제 제기 섹션 */}
       <section className="sub-section">

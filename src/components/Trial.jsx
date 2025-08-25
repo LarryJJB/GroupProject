@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Trial.css";
+import { FiAlertTriangle } from 'react-icons/fi';
 
 
 export default function Trial({ navigate }) {
@@ -173,12 +174,27 @@ const handleFileChange = (e) => {
  ) : (
  <p>분석 결과를 기다리는 중입니다.</p>
  )}
- <button onClick={() => setIsResultVisible(false)} className="btn btn-secondary" style={{ marginTop: '20px' }}>
+ <button onClick={() => setIsResultVisible(false)} className="btn btn-primary" style={{ marginTop: '4rem' }}>
  새로운 이미지 분석하기
  </button>
  </div>
  )}
+ 
  </div>
+       {/* 👇 여기에 새로운 주의사항 섹션을 추가하세요. */}
+      <div className="precautions-container">
+        <div className="form-precautions">
+          <h3><FiAlertTriangle 
+          size={20} 
+          style={{verticalAlign: 'middle', marginRight: '8px'}}/>    
+          주의사항</h3>
+          <ul>
+            <li>선명하고 글자가 잘 보이는 이미지를 업로드해주세요.</li>
+            <li>분석 결과는 참고용이며, 100% 정확하지 않을 수 있습니다.</li>
+            <li>개인정보가 포함된 이미지는 업로드하지 마세요.</li>
+          </ul>
+        </div>
+      </div>
  </div>
  );
 }

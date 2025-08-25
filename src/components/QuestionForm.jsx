@@ -74,7 +74,7 @@ const handleSubmit = (e) => {
                 <button
                   key={type}
                   type="button"
-                  className={`type-button ${formData.inquiryType === type ? 'active' : ''}`}
+                  className={`inquirytype-button ${formData.inquiryType === type ? 'active' : ''}`}
                   onClick={() => setFormData(prev => ({ ...prev, inquiryType: type }))}
                 >
                   {type}

@@ -2,7 +2,7 @@
 
 .header-wrapper {
   width: 100%;
-  background: var(--color-background);
+  background: #001f7a;
   box-shadow: var(--shadow-header);
   position: sticky;
   top: 0;
@@ -24,11 +24,11 @@
 .logo a {
   font-size: 1.6rem;
   font-weight: bold;
-  color: var(--color-text-dark);
+  color: #f8f9fa;
   text-decoration: none;
 }
 .logo a:hover {
-  color: #007bff;
+  color: #c3c4c5;
 ;
 }
 
@@ -51,12 +51,12 @@
 .nav-title {
   font-size: 1.07rem;
   font-weight: 600;
-  color: var(--color-text-dark);
+  color: #f8f9fa;
   cursor: pointer;
   transition: color 0.2s ease-in-out;
 }
 .nav-title:hover {
-  color: #007bff;
+  color: #c3c4c5;
 ;
 }
 
@@ -65,7 +65,7 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  padding-top: 50px;
+  margin-top: 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,17 +74,18 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition-delay: 0.3s;
 }
 
 .dropdown-link {
-  color: var(--color-text-light);
+  color: #c3c4c5;
   text-decoration: none;
   font-size: 0.98rem;
   white-space: nowrap;
   transition: color 0.2s ease-in-out;
 }
 .dropdown-link:hover {
-  color: #007bff;
+  color: #a3a3a3;
 
 }
 
@@ -100,14 +101,14 @@
   align-items: center;
   justify-content: center;
   font-size: 1.35rem;
-  color: var(--color-text-base);
+  color: #f8f9fa;
   cursor: pointer;
   padding: 0.2rem;
   border-radius: 50%;
   transition: background-color 0.15s ease-in-out;
 }
 .icon-button:hover {
-  background-color: var(--color-background-hover);
+  color: #c3c4c5;
 }
 
 .mega-menu-background {
@@ -115,23 +116,25 @@
   top: var(--header-height-desktop);
   left: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(0, 40, 160, 0.9);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid #001f7a;
   box-shadow: var(--shadow-dropdown);
   z-index: 1;
-  padding-bottom: 100px;
+  padding-bottom: 8rem;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
   transition: var(--transition-default);
+  transition-delay: 0.3s;
 }
 
 .mega-menu-background.visible,
 .dropdown-column.visible {
   opacity: 1;
   visibility: visible;
+  transition-delay: 0s;
 }
 
 .mega-menu-background.visible {

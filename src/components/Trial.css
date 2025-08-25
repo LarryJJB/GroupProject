@@ -18,11 +18,21 @@ body {
 .trial-hero {
   position: relative;
   padding: 6rem 1rem;
-  background-image: url('../assets/Trailbanner.jpg');
+  background-image: url('../assets/servicebanner.jpg');
   background-size: cover;
   background-position: center;
-  color: white; /* 흰색 텍스트 */
+  color: #f8f9fa; /* 흰색 텍스트 */
   text-align: center;
+}
+
+.trial-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* 어둡게 오버레이 */
 }
 
 /* 메인 컨텐츠 영역 */
@@ -62,26 +72,8 @@ body {
 }
 
 .btn-primary {
-  background-color: #007bff;
-  color: white;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2);
-}
-
-.btn-secondary {
-  background-color: #f1f3f5;
-  color: #333;
-  border: 1px solid #ccc;
-}
-
-.btn-secondary:hover {
-  background-color: #e2e6ea;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+  background-color: #001f7a;
+  color: #f8f9fa;
 }
 
 .btn:disabled {
@@ -145,7 +137,7 @@ body {
 
 /* Added from inline styles */
 .analyzed-image {
-    border: 2px solid #0028A0;
+    border: 2px solid #001f7a;
     display: block;
     margin: 0 auto;
 }
@@ -159,4 +151,42 @@ body {
   flex-direction: column; /* 아이템을 세로로 쌓음 */
   align-items: center; /* 아이템들을 가로축 중앙에 정렬 */
   width: 100%; /* 부모 요소의 전체 너비를 차지 */
+}
+.precautions-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* 주의사항 박스 자체의 스타일 */
+.form-precautions {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #001f7a;
+  font-size: 1em;
+  color: #f8f9fa;
+  text-align: left;
+  padding-top: 4rem;
+  padding-left: 5rem;
+  padding-bottom: 5rem;
+  font-size : 1.2rem;
+}
+
+.form-precautions h4 {
+  margin-bottom: 0.8em;
+  font-weight: 700;
+  color: #f8f9fa;
+}
+
+.form-precautions ul {
+  margin: 0;
+  padding-left: 1.2em;
+  line-height: 1.6;
+}
+
+.form-precautions li {
+  margin-bottom: 0.5em;
+}
+
+.form-precautions li:last-child {
+  margin-bottom: 0;
 }

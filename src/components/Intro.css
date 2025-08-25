@@ -8,10 +8,10 @@
 .intro-hero {
   position: relative;
   padding: 6rem 1rem;
-  background-image: url('../assets/Introbanner.jpg');
+  background-image: url('../assets/servicebanner.jpg');
   background-size: cover;
   background-position: center;
-  color: #fff; /* 흰색 텍스트 */
+  color: #f8f9fa; /* 흰색 텍스트 */
   text-align: center;
 }
 .intro-hero::before {
@@ -55,7 +55,7 @@ section h2::after {
   left: 0;
   width: 3rem;
   height: 3px;
-  background: #007bff;
+  background: #001f7a;
 }
 
 /* 서브 섹션 스타일 */

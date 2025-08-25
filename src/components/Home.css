@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white; /* 배경이 어두우므로 흰색 텍스트 유지 */
+  color: #f8f9fa; /* 배경이 어두우므로 흰색 텍스트 유지 */
   text-align: center;
   overflow: hidden;
 }
@@ -48,17 +48,14 @@
 
 .trial-link {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: #007bff;
-  color: white;
+  padding: 1rem 2rem;
+  background-color: #001f7a;
+  color: #f8f9fa;
   text-decoration: none;
   font-weight: 500;
-  border-radius: 5px;
-  transition: background-color 0.2s ease;
-}
-
-.trial-link:hover {
-  background-color: #0056b3;
+  border-radius: 10px;
+  transition: all 0.2s;
+  font-size : 1.2rem;
 }
 
 @keyframes fadeInSlideUp {
