@@ -43,7 +43,7 @@ const Join = ({ navigate }) => {
     <div>
       <div className="join-corp-bg">
         <div className="join-corp-box">
-          <h2>NUNBOM</h2>
+          <h1>NUNBOM</h1>
           <form onSubmit={handleSubmit}>
             <input
               type="text"
