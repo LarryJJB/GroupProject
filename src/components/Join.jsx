@@ -33,7 +33,7 @@ const Join = ({ navigate }) => {
     }
     // POST 요청
     try {
-      const res = await axios.post('http://localhost:3001/userg/join', {
+      const res = await axios.post('http://localhost:5000/userg/join', {
         name, phone, email, corpTel, id, pw
       });
       if (res.data.result === 1) {

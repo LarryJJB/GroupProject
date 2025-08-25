@@ -17,7 +17,7 @@ const Login = ({ navigate }) => {
     }
   }, []);
 
-  const loginUrl = 'http://localhost:3001/login';
+  const loginUrl = 'http://localhost:5000/login';
 
   const handleLogin = async (e) => {
     e.preventDefault();
