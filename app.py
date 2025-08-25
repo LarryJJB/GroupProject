@@ -3,6 +3,7 @@ import os
 import io
 import base64
 import numpy as np
+import cv2
 from flask import Flask, request, jsonify
 from flask_cors import CORS  # CORS 처리를 위한 라이브러리
 from PIL import Image
@@ -60,21 +61,43 @@ def analyze_image():
             main_image_b64 = pil_to_base64(result_plot_img)
             detections = []
 
-            # 👇 여기가 수정된 부분입니다!
             if len(results[0].boxes) > 0:
                 for box in results[0].boxes:
                     coords = box.xyxy[0].cpu().numpy().astype(int)
                     obj_id = int(box.id[0].cpu()) if box.id is not None else 0
                     label = model.names[int(box.cls[0].cpu())]
-                    confidence = float(box.conf[0].cpu().item()) # 프론트엔드 숫자 계산을 위해 float으로 변경
+                    confidence = float(box.conf[0].cpu().item())
 
                     cropped_img = pil_img.crop(coords)
                     cropped_np = np.array(cropped_img)
-                    ocr_results = ocr_reader.readtext(cropped_np)
+
+                    # --- 5단계 전처리 파이프라인 ---
+                    # 1. 노이즈 제거
+                    denoised_img = cv2.fastNlMeansDenoisingColored(cropped_np, None, 10, 10, 7, 21)
+
+                    # 2. 이미지 확대
+                    h, w, _ = denoised_img.shape
+                    upscaled_img = cv2.resize(denoised_img, (w * 2, h * 2), interpolation=cv2.INTER_CUBIC)
+
+                    # 3. 선명화
+                    sharpen_kernel = np.array([[0, -1, 0], [-1, 5, -1], [0, -1, 0]])
+                    sharpened_img = cv2.filter2D(upscaled_img, -1, sharpen_kernel)
+
+                    # 4. 흑백 변환
+                    gray_img = cv2.cvtColor(sharpened_img, cv2.COLOR_BGR2GRAY)
+
+                    # 5. Otsu를 이용한 이진화
+                    ret, binary_img = cv2.threshold(gray_img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+
+                    # 최종 처리된 이미지로 OCR 수행
+                    ocr_results = ocr_reader.readtext(binary_img)
                     ocr_text = " ".join([res[1] for res in ocr_results]) if ocr_results else "N/A"
 
+                    # 웹 표에 표시할 이미지도 최종 처리된 이미지로 변환
+                    processed_pil_img = Image.fromarray(binary_img)
+
                     detections.append({
-                        'image': pil_to_base64(cropped_img),
+                        'image': pil_to_base64(processed_pil_img),
                         'id': obj_id,
                         'text': ocr_text,
                         'label': label,

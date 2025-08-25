@@ -5,7 +5,7 @@ import { FaUserCircle, FaGlobe } from "react-icons/fa";
 // 메뉴 데이터는 컴포넌트 바깥에 두어 불필요한 재생성을 방지합니다.
 const menuData = [
   { title: '회사소개', items: [{ name: '인사말', page: 'hi' }, { name: '홍보영상', page: 'promo' }] },
-  { title: '서비스', items: [{ name: '제품 소개', page: 'intro' }, { name: '체험', page: 'experience' }] },
+  { title: '서비스', items: [{ name: '제품 소개', page: 'intro' }, { name: '체험', page: 'trial' }] },
   { title: '문의사항', items: [{ name: 'FAQ', page: 'faq' }, { name: '1:1문의하기', page: 'questionform' }] }
 ];
 

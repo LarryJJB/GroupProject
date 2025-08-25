@@ -88,7 +88,7 @@
 .type-button {
   padding: 0.75rem 1.5rem;
   border: 2px solid #e9ecef;
-  background: #f8f9fa;
+  background: white;
   border-radius: 25px;
   cursor: pointer;
   font-size: 1rem;
@@ -120,7 +120,7 @@
   font-family: inherit;
   resize: vertical;
   box-sizing: border-box;
-  background-color: #f8f9fa;
+  background-color: white;
 }
 
 .form-group input[type="text"]:focus,
@@ -161,6 +161,7 @@
   text-align: center;
   transition: border-color 0.2s;
   cursor: pointer;
+  background-color: white;
 }
 
 .file-upload:hover .file-info {

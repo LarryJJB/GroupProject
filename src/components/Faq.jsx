@@ -1,7 +1,5 @@
 // src/pages/Faq.jsx
-
 import React, { useState } from 'react';
-// ⚠️ Link는 더 이상 필요 없으므로 import에서 제거해도 됩니다.
 import './Faq.css';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 
@@ -32,9 +30,9 @@ const Faq = ({ navigate }) => {
 
   return (
     <div className="faq-container">
-      <div className="faq-header">
-        <h2>자주 묻는 질문</h2>
-        <p>궁금한 점이 있으신가요? 먼저 자주 묻는 질문을 확인해보세요.</p>
+      <div className="faq-hero">
+        <h1 className='hero-title'>자주 묻는 질문</h1>
+        <p className='hero-subtitle'>궁금한 점이 있으신가요? 먼저 자주 묻는 질문을 확인해보세요.</p>
       </div>
       
       <div className="faq-list">

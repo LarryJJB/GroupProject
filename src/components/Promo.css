@@ -5,7 +5,7 @@
 .promo-video-placeholder {
   position: relative;
   height: 60vh;
-  background: url('https://placehold.co/1920x1080/2c3e50/ffffff?text=Tech+Background') center/cover no-repeat;
+  background: #0028A0;
   display: flex;
   align-items: center;
   justify-content: center;

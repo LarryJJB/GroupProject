@@ -8,8 +8,6 @@ const Promo = () => {
       <section className="promo-video-placeholder">
         <div className="video-overlay"></div>
         <div className="video-content">
-          <h2>AI 기반 실시간 라벨 검수 시스템</h2>
-          <p>우리의 기술이 어떻게 제조 공정을 혁신하는지 확인해보세요.</p>
           <div className="play-button">▶</div>
           <span>(홍보 영상이 여기에 표시됩니다)</span>
         </div>

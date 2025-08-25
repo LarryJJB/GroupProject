@@ -21,7 +21,7 @@ const Intro = () => {
   return (
     <main className="intro-container">
       {/* 히어로 섹션 */}
-      <section className="hero">
+      <section className="intro-hero">
         <h1 className="hero-title">
           AI가 의약품 라벨 불량을 단 1초 만에 감지합니다
         </h1>

@@ -14,8 +14,9 @@ const Hi = () => {
 
       {/* 인삿말 */}
       <section className="sub-section">
-        {/* 👇 여기에 className 추가! */}
-        <h2 className="section-header">인사말</h2>
+        <div className='section-header'>
+        <h2>인사말</h2>
+        </div>
         <p className="greeting__text">
           보이지 않는 위험까지 잡아내는 AI의 눈, 눈봄은 모든 생명이 안심할 수 있는 환경을 만듭니다.
           <br />
@@ -26,7 +27,9 @@ const Hi = () => {
       {/* 핵심 가치 */}
       <section className="sub-section">
         {/* 👇 여기에 className 추가! */}
-        <h2 className="section-header">핵심 가치</h2>
+        <div className='section-header'>
+        <h2>핵심 가치</h2>
+        </div>
         <div className="values__grid">
           <div className="values__card">
             <h3 className="values__card-title">정확성</h3>
@@ -45,7 +48,9 @@ const Hi = () => {
 
       {/* 비전 & 미션 */}
       <section className="sub-section">
-        <h2 className="section-header">현재와 미래</h2>
+        <div className='section-header'>
+        <h2>현재와 미래</h2>
+        </div>
         <div className='vision-mission'>
         <div className="vision-mission__box">
           <h3 className="vision-mission__title">Vision</h3>

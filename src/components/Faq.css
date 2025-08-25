@@ -1,32 +1,24 @@
 /* src/pages/Faq.css */
 
 .faq-container {
-  max-width: 1200px;
-  margin: 4rem auto;
-  padding: 2rem;
   font-family: 'Pretendard', sans-serif;
   background-color: white;
 }
 
-.faq-header {
+.faq-hero {
+  position: relative;
+  padding: 6rem 1rem;
+  background-image: url('../assets/Faqbanner.jpg');
+  background-size: cover;
+  background-position: center;
+  color: black; /* 흰색 텍스트 */
   text-align: center;
-  margin-bottom: 3rem;
-}
-
-.faq-header h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #212529;
-  margin-bottom: 0.5rem;
-}
-
-.faq-header p {
-  font-size: 1.1rem;
-  color: #6c757d;
 }
 
 .faq-list {
-  border-top: 2px solid #343a40;
+  border-top: 2px;
+  max-width: 1200px;
+  margin: 4rem auto;
 }
 
 .faq-item {
