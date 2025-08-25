@@ -1,24 +1,19 @@
 .join-corp-bg {
-  min-height: 100vh;
-  background: #f7fafd;
+  height: calc(100vh - var(--header-height-desktop));
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .join-corp-box {
   background: #fff;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  min-width: 320px;
-  max-width: 520px;
-  width: 90%;
-  box-sizing: border-box;
+  width: 25vw;
 }
-.join-corp-box h2 {
+.join-corp-box h1 {
   text-align: center;
-  color: #0c355c;
-  margin-bottom: 24px;
+  color: #001f7a;
+  margin-bottom: 3rem;
 }
 .join-corp-box form {
   display: flex;
@@ -29,21 +24,22 @@
 .join-corp-box input[type="password"],
 .join-corp-box input[type="email"],
 .join-corp-box input[type="tel"] {
-  padding: 11px 14px;
-  font-size: 16px;
-  border: 1.5px solid #e1e4e8;
+  padding: 13px 14px;
+  font-size: 1.2rem;
+  border: 1px solid #dde1ea;
+  background-color: #f7f9fc;
   border-radius: 8px;
   transition: border 0.2s;
 }
 .join-corp-box input:focus {
-  border: 1.5px solid #0098d8;
+  border: 1.5px solid #001f7a;
   outline: none;
 }
-.upload-section {
-  font-size: 14px;
-  color: #888;
-  margin-bottom: 8px;
+
+input[type="checkbox"] {
+  accent-color: #001f7a; /* 체크박스 색상 */
 }
+
 .terms {
   font-size: 15px;
   margin: 10px 0 4px 0;
@@ -53,7 +49,7 @@
   gap: 4px;
 }
 .main-btn {
-  background: #e24e42;
+  background: #001f7a;
   color: #fff;
   border: none;
   padding: 13px 0;
@@ -63,7 +59,4 @@
   margin-top: 12px;
   cursor: pointer;
   transition: background 0.16s;
-}
-.main-btn:hover {
-  background: #b53026;
 }
