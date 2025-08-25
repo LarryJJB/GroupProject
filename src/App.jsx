@@ -7,10 +7,8 @@ import Intro from './components/Intro';
 import Hi from './components/Hi';
 import Faq from './components/Faq';
 import Promo from './components/Promo';
-import LoginCorp from './components/LoginCorp';
-import JoinMain from './components/JoinMain';
-import JoinBusiness from './components/JoinBusiness';
-import JoinGovernment from './components/JoinGovernment';
+import Login from './components/Login';
+import Join from './components/Join';
 import './App.css';
 
 function App() {
@@ -58,13 +56,9 @@ function App() {
             case 'promo':
               return <Promo navigate={navigate} />;
             case 'login':
-              return <LoginCorp navigate={navigate} />;
-            case 'joinmain':
-              return <JoinMain navigate={navigate} />;
-            case 'joinbusiness':
-              return <JoinBusiness navigate={navigate} />;
-            case 'joingovernment':
-              return <JoinGovernment navigate={navigate} />;
+              return <Login navigate={navigate} />;
+            case 'join':
+              return <Join navigate={navigate} />;
             default:
               return <Home navigate={navigate} />;
           }

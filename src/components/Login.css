@@ -1,0 +1,102 @@
+:root {
+  --header-height-desktop: 80px; /* 헤더 높이 예시 */
+}
+
+.login-corp-bg {
+  height: calc(100vh - var(--header-height-desktop));
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-corp-box {
+  background: #ffffff;
+  text-align: center;
+  width: 25vw;
+}
+
+.login-corp-box h1 {
+  color: #001f7a;
+  margin-top: 22px; /* JSX에서 이동 */
+  margin-bottom: 3rem;
+}
+
+.login-corp-box input[type="text"],
+.login-corp-box input[type="password"] {
+  width: 100%;
+  padding: 13px 14px;
+  margin-bottom: 18px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  border: 1px solid #dde1ea;
+  background: #f7f9fc;
+  outline: none;
+  transition: border 0.2s;
+  box-sizing: border-box; /* padding을 너비에 포함 */
+}
+
+/* --- 아이디 저장 영역 스타일 --- */
+.save-id-section {
+  margin: 12px 0 0 0;
+  text-align: left;
+}
+
+.save-id-section input[type="checkbox"] {
+  accent-color: #001f7a; /* 체크박스 색상 */
+}
+
+.save-id-section label {
+  margin-left: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+/* -------------------------- */
+
+.login-error {
+  color: #d93025; /* 눈에 잘 띄는 빨간색으로 변경 */
+  margin-bottom: 12px;
+  margin-top: 5px; /* 위쪽 여백 추가 */
+  font-size: 0.98rem;
+  text-align: left; /* 왼쪽 정렬 */
+}
+
+.main-loginbtn {
+  width: 100%;
+  background: #001f7a;
+  color: #fff;
+  font-size: 1.08rem;
+  padding: 14px 0;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  transition: background 0.2s;
+}
+
+.main-loginbtn:hover {
+  background: #00165a; /* 호버 시 약간 더 어둡게 */
+}
+
+.login-link-area {
+  margin-top: 14px;
+  color: #555;
+  font-size: 0.96rem;
+}
+
+.login-link-area .divider {
+  margin: 0 10px;
+  color: #bbb;
+}
+
+.login-link-area .join-link {
+  color: #001f7a;
+  cursor: pointer;
+}
+
+.login-link-area .join-link:hover {
+  font-weight: bolder;
+}
