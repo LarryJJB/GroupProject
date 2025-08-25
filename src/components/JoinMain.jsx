@@ -1,22 +1,21 @@
 import './LoginCorp.css';
 import React from 'react';
-import Header from './Header';
-import { Link } from 'react-router-dom';
 
-const JoinMain = () => {
+const JoinMain = ({ navigate }) => { // navigate prop을 받도록 수정
   return (
     <div>
-      <Header />
+      {/* <Header /> 는 App.jsx에서 렌더링되므로 제거 */}
       <div className="login-corp-bg">
         <div className="login-corp-box">
           <h2>회원가입</h2>
           <div>
-            <Link to="/joinbusiness" className="main-btn-01">
+            {/* Link를 navigate 함수를 사용하는 button으로 변경 */}
+            <button onClick={() => navigate('joinbusiness')} className="main-btn-01">
               기업
-            </Link>
-            <Link to="/joingovernment" className="main-btn-01">
+            </button>
+            <button onClick={() => navigate('joingovernment')} className="main-btn-01">
               관공업
-            </Link>
+            </button>
           </div>
         </div>
       </div>

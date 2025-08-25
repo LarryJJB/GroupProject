@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom'; // 라우터 사용 안함
 import Header from './Header';
 import './LoginCorp.css'; // 기존 스타일 그대로 사용
 
-const LoginUnified = () => {
+const LoginCorp = ({ navigate }) => { // navigate 함수를 props로 받음
   const [mode, setMode] = useState('business'); // 'business' or 'government'
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
   const [saveId, setSaveId] = useState(false);  // 아이디 저장 여부
   const [error, setError] = useState('');
-  const navigate = useNavigate();
+  // const navigate = useNavigate(); // 라우터 사용 안함
 
   // 로그인 타입별로 다른 키로 저장
   const savedIdKey = mode === 'business' ? 'savedId' : 'savedGovId';
@@ -56,7 +56,7 @@ const LoginUnified = () => {
           localStorage.removeItem(savedIdKey);
         }
         localStorage.setItem(mode === 'business' ? 'id' : 'gov_id', id);
-        navigate('/');
+        navigate('home'); // 'home'으로 페이지 이동
       } else {
         setError(data.msg || '로그인 실패! 아이디/비밀번호를 확인하세요.');
       }
@@ -67,7 +67,7 @@ const LoginUnified = () => {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}{/* App.jsx에서 이미 렌더링하므로 제거 */}
       <div className="login-corp-bg">
         <div className="login-corp-box">
           <div className="login-switch-btn-area">
@@ -124,7 +124,7 @@ const LoginUnified = () => {
           <div className="login-link-area">
             <span>비밀번호를 잊으셨나요?</span>
             <span className="divider">|</span>
-            <a href="/joinmain" className="join-link">회원가입</a>
+            <span onClick={() => navigate('joinmain')} className="join-link">회원가입</span>
           </div>
         </div>
       </div>
@@ -132,4 +132,4 @@ const LoginUnified = () => {
   );
 };
 
-export default LoginUnified;
+export default LoginCorp;

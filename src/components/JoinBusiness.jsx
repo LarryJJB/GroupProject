@@ -1,10 +1,12 @@
-import './Join.css'
+import './Join.css';
 import { useState } from "react";
-import Header from './Header';
-import { useNavigate } from "react-router-dom";
-import React from 'react'; 
+// import Header from './Header'; // App.jsx에서 렌더링되므로 제거
+// import { useNavigate } from "react-router-dom"; // 라우터 의존성 제거
+import React from 'react';
 
-const JoinCorp = () => {
+// 파일명이 JoinBusiness.jsx 이므로 컴포넌트 이름도 통일 (기존 JoinCorp -> JoinBusiness)
+// props로 navigate 함수를 받도록 수정
+const JoinBusiness = ({ navigate }) => {
   const [corpName, setCorpName] = useState('');
   const [corpRegNum, setCorpRegNum] = useState('');
   const [ceo, setCeo] = useState('');
@@ -21,7 +23,7 @@ const JoinCorp = () => {
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [agreePrivacy, setAgreePrivacy] = useState(false);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate(); // 라우터 hook 제거
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,7 +58,8 @@ const JoinCorp = () => {
       });
       if (res.ok) {
         alert('회원가입 성공!');
-        navigate('/login');
+        // props로 받은 navigate 함수를 사용하여 'login' 페이지로 이동
+        navigate('login');
       } else {
         alert('회원가입 실패!');
       }
@@ -67,7 +70,7 @@ const JoinCorp = () => {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> 는 App.jsx에서 렌더링되므로 제거 */}
       <div className="join-corp-bg">
         <div className="join-corp-box">
           <h2>공공기관·기업 회원가입</h2>
@@ -110,4 +113,5 @@ const JoinCorp = () => {
   );
 };
 
-export default JoinCorp;
+// 파일명과 동일하게 export 이름도 수정
+export default JoinBusiness;

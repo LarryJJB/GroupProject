@@ -66,7 +66,7 @@ const Header = ({ navigate }) => {
         
         <div className="header-icons">
           <div className="icon-button"><FaGlobe /></div>
-          <div className="icon-button"><FaUserCircle /></div>
+          <div className="icon-button" onClick={() => navigate('login')}><FaUserCircle /></div>
         </div>
 
       </header>
