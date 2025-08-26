@@ -8,3 +8,5 @@ Pillow
 numpy
 pyngrok
 lap
+google-generativeai
+python-dotenv
