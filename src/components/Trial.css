@@ -1,13 +1,6 @@
 /* 폰트 및 기본 페이지 설정 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
 
-body {
-  margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
-  color: #333; /* 전체 텍스트 기본 색상 */
-  background: linear-gradient(135deg, #f4f8ff 0%, #ffffff 100%);
-}
-
 /* 전체 페이지 컨테이너 */
 .trial-page {
   font-family: 'Pretendard', sans-serif;
@@ -46,7 +39,6 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
-  justify-content: center;
   gap: 40px;
   transition: all 0.3s ease;
 }
@@ -83,10 +75,6 @@ body {
   box-shadow: none;
 }
 
-.file-input {
-  display: none;
-}
-
 .output-placeholder, .loading-text {
   font-size: 1.5rem;
   color: #aaa;
@@ -120,7 +108,6 @@ body {
   padding: 12px 8px;
   text-align: center;
   vertical-align: middle;
-  white-space: nowrap;
 }
 
 .result-table th {
@@ -152,41 +139,28 @@ body {
   align-items: center; /* 아이템들을 가로축 중앙에 정렬 */
   width: 100%; /* 부모 요소의 전체 너비를 차지 */
 }
-.precautions-container {
-  display: flex;
-  justify-content: center;
-}
-
 /* 주의사항 박스 자체의 스타일 */
-.form-precautions {
-  width: 100%;
-  box-sizing: border-box;
-  background-color: white;
-  font-size: 1em;
-  color: black;
-  text-align: left;
-  padding-top: 4rem;
-  padding-left: 5rem;
-  padding-bottom: 5rem;
-  font-size : 1.2rem;
+.warning-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.form-precautions h4 {
+.warning-section h4 {
   margin-bottom: 0.8em;
   font-weight: 700;
-  color: #f8f9fa;
 }
 
-.form-precautions ul {
+.warning-section ul {
   margin: 0;
   padding-left: 1.2em;
   line-height: 1.6;
 }
 
-.form-precautions li {
+.warning-section li {
   margin-bottom: 0.5em;
 }
 
-.form-precautions li:last-child {
-  margin-bottom: 0;
+.warning-section li:last-child {
+  padding-bottom: 2rem;
 }
