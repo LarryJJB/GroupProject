@@ -22,7 +22,7 @@
 }
 
 .logo a {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #001f7a;
   text-decoration: none;
@@ -48,14 +48,14 @@
 }
 
 .nav-title {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  color: #001f7a;
+  color: #000000;
   cursor: pointer;
   transition: color 0.2s ease-in-out;
 }
 .nav-title:hover {
-  filter: brightness(1.4)
+  color: #2c2c2c
 ;
 }
 
@@ -84,7 +84,7 @@
   transition: color 0.2s ease-in-out;
 }
 .dropdown-link:hover {
-  color: #001f7a;
+  color: #505050;
 }
 
 .header-icons {
@@ -98,15 +98,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
-  color: #001f7a;
+  font-size: 1.6rem;
+  color: #000000;
   cursor: pointer;
   padding: 0.2rem;
   border-radius: 50%;
   transition: background-color 0.15s ease-in-out;
 }
 .icon-button:hover {
-  filter: brightness(1.4);
+  color: #2c2c2c;
 }
 
 .mega-menu-background {
