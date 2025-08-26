@@ -91,9 +91,7 @@ const Login = ({ navigate }) => {
           </form>
 
           <div className="login-link-area">
-            <span>비밀번호를 잊으셨나요?</span>
-            <span className="divider">|</span>
-            <span onClick={() => navigate('join')} className="join-link">회원가입</span>
+            <button onClick={() => navigate('join')} className="join-btn">회원가입</button>
           </div>
         </div>
       </div>
