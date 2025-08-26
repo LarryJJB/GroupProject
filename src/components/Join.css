@@ -48,15 +48,19 @@ input[type="checkbox"] {
   flex-direction: column;
   gap: 4px;
 }
+
 .main-btn {
+  width: 100%;
   background: #001f7a;
   color: #fff;
+  font-size: 1.08rem;
+  padding: 14px 0;
   border: none;
-  padding: 13px 0;
   border-radius: 8px;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 12px;
+  font-weight: 700;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: background 0.16s;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  transition: background 0.2s;
 }
