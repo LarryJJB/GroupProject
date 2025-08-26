@@ -78,10 +78,12 @@
   padding: 1rem;
   border-bottom: 1px solid #dee2e6;
   border-right: 1px solid #dee2e6;
+  word-break: break-word;
 }
 .tech-row div:last-child {
   border-right: none;
 }
+
 .tech-table .tech-row:last-child div {
   border-bottom: none;
 }

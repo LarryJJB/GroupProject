@@ -8,7 +8,6 @@
   top: 0;
   z-index: 1000;
 }
-
 .header-container {
   width: 100%;
   display: grid;
@@ -20,136 +19,130 @@
   position: relative;
   z-index: 2;
 }
+/* ... (기존 데스크탑 스타일은 동일) ... */
+.logo a { font-size: 1.5rem; font-weight: bold; color: #001f7a; text-decoration: none; }
+.logo a:hover { filter: brightness(1.4); }
+.nav { display: flex; justify-content: center; align-items: center; gap: 3rem; height: 100%; }
+.nav-item { position: relative; padding: 0 1rem; height: 100%; display: flex; align-items: center; }
+.nav-title { font-size: 1.3rem; font-weight: 600; color: #000000; cursor: pointer; transition: color 0.2s ease-in-out; }
+.nav-title:hover { color: #2c2c2c; }
+.dropdown-column { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 3.1rem; display: flex; flex-direction: column; align-items: center; gap: 2rem; width: max-content; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; transition-delay: 0.3s; }
+.dropdown-link { color: rgb(255, 255, 255); text-decoration: none; font-size: 1.2rem; white-space: nowrap; transition: color 0.2s ease-in-out; }
+.dropdown-link:hover { color: #505050; }
+.header-icons { display: flex; align-items: center; gap: 1.2rem; justify-content: flex-end; }
+.icon-button { display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: #000000; cursor: pointer; padding: 0.2rem; border-radius: 50%; transition: background-color 0.15s ease-in-out; }
+.icon-button:hover { color: #2c2c2c; }
+.mega-menu-background { position: absolute; top: var(--header-height-desktop); left: 0; width: 100%; background-color: rgba(192, 192, 192, 0.726); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); box-shadow: var(--shadow-dropdown); z-index: 1; padding-bottom: 9rem; margin-bottom: 2rem; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: var(--transition-default); transition-delay: 0.3s; }
+.mega-menu-background.visible, .dropdown-column.visible { opacity: 1; visibility: visible; transition-delay: 0s; }
+.mega-menu-background.visible { transform: translateY(0); }
 
-.logo a {
+
+/********************************************************
+    (추가) 햄버거 메뉴 & 모바일 패널
+********************************************************/
+.hamburger-button {
+  display: none; /* 평소에는 숨김 */
+  background: none;
+  border: none;
   font-size: 1.5rem;
-  font-weight: bold;
-  color: #001f7a;
-  text-decoration: none;
-}
-.logo a:hover {
-  filter: brightness(1.4);
-}
-
-.nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-  height: 100%;
-}
-
-.nav-item {
-  position: relative;
-  padding: 0 1rem;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.nav-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #000000;
   cursor: pointer;
-  transition: color 0.2s ease-in-out;
+  z-index: 1002;
+  color: #000;
 }
-.nav-title:hover {
-  color: #2c2c2c
-;
-}
-
-.dropdown-column {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 3.1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  width: max-content;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  transition-delay: 0.3s;
-}
-
-.dropdown-link {
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  font-size: 1.2rem;
-  white-space: nowrap;
-  transition: color 0.2s ease-in-out;
-}
-.dropdown-link:hover {
-  color: #505050;
-}
-
-.header-icons {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-  justify-content: flex-end;
-}
-
-.icon-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.6rem;
-  color: #000000;
-  cursor: pointer;
-  padding: 0.2rem;
-  border-radius: 50%;
-  transition: background-color 0.15s ease-in-out;
-}
-.icon-button:hover {
-  color: #2c2c2c;
-}
-
-.mega-menu-background {
-  position: absolute;
-  top: var(--header-height-desktop);
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(192, 192, 192, 0.726);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
-  box-shadow: var(--shadow-dropdown);
-  z-index: 1;
-  padding-bottom: 9rem;
-  margin-bottom: 2rem;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-10px);
-  transition: var(--transition-default);
-  transition-delay: 0.3s;
+  transition: all 0.3s ease;
 }
-
-.mega-menu-background.visible,
-.dropdown-column.visible {
+.mobile-menu-overlay.open {
   opacity: 1;
   visibility: visible;
-  transition-delay: 0s;
+}
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -300px; /* 오른쪽에 숨김 */
+  width: 300px;
+  height: 100%;
+  background: #fff;
+  z-index: 1001;
+  padding: 5rem 0 2rem 0;
+  box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+  transition: right 0.3s ease-in-out;
+  overflow-y: auto;
+}
+.mobile-menu.open {
+  right: 0;
+}
+.mobile-menu-group {
+  border-bottom: 1px solid #eee;
+}
+.mobile-menu-1depth {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.mobile-menu-2depth-links {
+  display: flex;
+  flex-direction: column;
+  background: #f8f9fa;
+  padding-left: 1.5rem;
+}
+.mobile-menu-link {
+  display: block;
+  padding: 0.8rem 1.5rem;
+  color: #666;
+  font-size: 1rem;
+  text-decoration: none;
+}
+.mobile-menu-link:hover {
+  color: #000;
 }
 
-.mega-menu-background.visible {
-  transform: translateY(0);
+.mobile-login {
+  position: absolute;
+  top: 1rem;
+  right : 1.5rem;
+  font-size: 0.8rem;
+  color: #000000;
+  cursor: pointer;
 }
 
+.mobile-login:hover {
+  color: #001f7a;
+  font-weight: bold;
+}
+
+/********************************************************
+    (수정) 반응형 미디어 쿼리
+********************************************************/
 @media (max-width: 768px) {
   .header-container {
-    display: flex;
+    display: flex; /* grid 대신 flex로 변경하여 양쪽 정렬 */
     justify-content: space-between;
     padding: 0 1rem;
     height: var(--header-height-mobile);
   }
-  .nav {
+  /* 데스크탑 메뉴와 아이콘 숨김 */
+  .nav, .header-icons {
     display: none;
   }
+  /* 햄버거 버튼 보여줌 */
+  .hamburger-button {
+    display: block;
+  }
   .mega-menu-background {
-     top: var(--header-height-mobile);
+      top: var(--header-height-mobile);
   }
 }

@@ -182,8 +182,7 @@ const handleFileChange = (e) => {
  
  </div>
        {/* 👇 여기에 새로운 주의사항 섹션을 추가하세요. */}
-      <div className="precautions-container">
-        <div className="form-precautions">
+        <div className="warning-section">
           <h3><FiAlertTriangle 
           size={20} 
           style={{verticalAlign: 'middle', marginRight: '8px'}}/>    
@@ -194,7 +193,6 @@ const handleFileChange = (e) => {
             <li>개인정보가 포함된 이미지는 업로드하지 마세요.</li>
           </ul>
         </div>
-      </div>
  </div>
  );
 }

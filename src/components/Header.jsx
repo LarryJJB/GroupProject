@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { FaUserCircle, FaGlobe, FaBars, FaTimes } from "react-icons/fa";
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi'; // (추가) 아코디언 아이콘
 import './Header.css';
-import { FaUserCircle, FaGlobe } from "react-icons/fa";
 
-// 메뉴 데이터는 컴포넌트 바깥에 두어 불필요한 재생성을 방지합니다.
 const menuData = [
   { title: '회사소개', items: [{ name: '인사말', page: 'hi' }, { name: '홍보영상', page: 'promo' }] },
   { title: '서비스', items: [{ name: '제품 소개', page: 'intro' }, { name: '체험', page: 'trial' }] },
@@ -11,14 +11,16 @@ const menuData = [
 
 const Header = ({ navigate }) => {
   const [showMegaMenu, setShowMegaMenu] = useState(false);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false); // (추가) 모바일 메뉴 상태
+  const [openAccordion, setOpenAccordion] = useState(null);     // (추가) 모바일 아코디언 상태
   const headerRef = useRef(null); 
 
   const handleLinkClick = (e, page) => {
     e.preventDefault();
     navigate(page);
+    setMobileMenuOpen(false); // (추가) 모바일에서 링크 클릭 시 메뉴 닫기
   };
   
-  // 메뉴 바깥 클릭 감지 로직
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (headerRef.current && !headerRef.current.contains(event.target)) {
@@ -28,6 +30,11 @@ const Header = ({ navigate }) => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  // (추가) 모바일 아코디언 토글 함수
+  const toggleAccordion = (title) => {
+    setOpenAccordion(openAccordion === title ? null : title);
+  };
 
   return (
     <div className="header-wrapper" ref={headerRef}>
@@ -46,15 +53,9 @@ const Header = ({ navigate }) => {
             {menuData.map((menu) => (
               <div key={menu.title} className="nav-item">
                 <span className="nav-title">{menu.title}</span>
-                {/* 'visible' 클래스를 동적으로 제어합니다. */}
                 <div className={`dropdown-column ${showMegaMenu ? 'visible' : ''}`}>
                   {menu.items.map((item) => (
-                    <a 
-                      key={item.name} 
-                      href="#" 
-                      onClick={(e) => handleLinkClick(e, item.page)}
-                      className="dropdown-link"
-                    >
+                    <a key={item.name} href="#" onClick={(e) => handleLinkClick(e, item.page)} className="dropdown-link">
                       {item.name}
                     </a>
                   ))}
@@ -69,10 +70,43 @@ const Header = ({ navigate }) => {
           <div className="icon-button" onClick={() => navigate('login')}><FaUserCircle /></div>
         </div>
 
+        {/* (추가) 햄버거 버튼 */}
+        <div className="hamburger-button" onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
+          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+
       </header>
 
-      {/* 배경도 항상 렌더링하고 'visible' 클래스로 제어해야 애니메이션이 작동합니다. */}
+      {/* PC용 메가메뉴 배경 */}
       <div className={`mega-menu-background ${showMegaMenu ? 'visible' : ''}`}></div>
+      {/* (추가) 모바일 메뉴 */}
+      <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`} onClick={() => setMobileMenuOpen(false)}></div>
+      <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+        <div className='mobile-login' onClick={() => navigate('login')}>로그인/회원가입</div>
+        {menuData.map(menu => (
+          <div key={menu.title} className="mobile-menu-group">
+            <div className="mobile-menu-1depth" onClick={() => toggleAccordion(menu.title)}>
+              <span>{menu.title}</span>
+              {openAccordion === menu.title ? <FiChevronUp /> : <FiChevronDown />}
+            </div>
+            {/* 아코디언이 열렸을 때 2뎁스 메뉴를 보여줌 */}
+            {openAccordion === menu.title && (
+              <div className="mobile-menu-2depth-links">
+                {menu.items.map(item => (
+                  <a 
+                    key={item.name} 
+                    href="#"
+                    onClick={(e) => handleLinkClick(e, item.page)} 
+                    className="mobile-menu-link"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

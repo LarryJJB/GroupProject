@@ -98,8 +98,10 @@ section h2::after {
 
 /* 솔루션 흐름 */
 .flow {
-  display: flex;
-  gap: 10rem;
+  display: grid;
+  max-width: 900px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   justify-content: center;
   margin-top: 1.5rem;
 }
@@ -139,7 +141,11 @@ section h2::after {
   flex-wrap: wrap;
 }
 .sample-images img {
-  max-width: 45%;
-  max-width: 400px;
+  /* [수정] flex-basis로 기본 너비를 지정하고, 화면이 작아지면 줄어들도록 설정합니다. */
+  /* calc()를 사용해 전체 너비의 절반에서 gap의 절반을 뺀 만큼을 너비로 가집니다. */
+  flex-basis: calc(50% - 1rem); 
+  width: 100%; /* 이미지가 부모 요소 크기에 맞게 조절되도록 합니다. */
+  max-width: 400px; /* 아무리 커져도 400px를 넘지 않도록 합니다. */
   border-radius: 0.5rem;
+  object-fit: cover; /* 이미지 비율이 깨지지 않게 합니다. */
 }
