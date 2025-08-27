@@ -9,10 +9,12 @@ import Faq from './components/Faq';
 import Promo from './components/Promo';
 import Login from './components/Login';
 import Join from './components/Join';
+import MyPage from './components/Mypage';
 import './App.css';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
     useEffect(() => {
     window.scrollTo(0, 0);
@@ -20,6 +22,18 @@ function App() {
 
   const navigate = (page) => {
     setCurrentPage(page);
+  };
+
+    const handleLogin = () => {
+    // setIsLoggedIn 함수를 사용해 isLoggedIn 상태를 true로 변경합니다.
+    setIsLoggedIn(true); 
+    navigate('home'); 
+  };
+
+  const handleLogout = () => {
+    // setIsLoggedIn 함수를 사용해 isLoggedIn 상태를 false로 변경합니다.
+    setIsLoggedIn(false); 
+    navigate('home'); 
   };
 
   const handleInquirySubmit = (inquiryData) => {
@@ -34,7 +48,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header navigate={navigate} />
+    <Header navigate={navigate} isLoggedIn={isLoggedIn} />
 
       <main>
         {/* renderPage 함수 대신, 여기에 직접 페이지를 보여주는 로직을 넣습니다. */}
@@ -60,9 +74,11 @@ function App() {
             case 'promo':
               return <Promo navigate={navigate} />;
             case 'login':
-              return <Login navigate={navigate} />;
+              return <Login navigate={navigate} onLogin={handleLogin} />;
             case 'join':
               return <Join navigate={navigate} />;
+            case 'mypage':
+              return <MyPage navigate={navigate} onLogout={handleLogout} />;
             default:
               return <Home navigate={navigate} />;
           }
