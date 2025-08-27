@@ -112,7 +112,7 @@ const handleSubmit = (e) => {
 
           {/* 파일 첨부 */}
           <div className="form-group full-width">
-            <label htmlFor="file">파일첨부</label>
+            <label htmlFor="file">파일첨부*
             <div className="file-upload">
               <input
                 type="file"
@@ -128,6 +128,7 @@ const handleSubmit = (e) => {
                 )}
               </div>
             </div>
+            </label>
           </div>
 
           {/* 버튼 */}

@@ -183,7 +183,7 @@
 }
 
 .btn-speak {
-  background-color: #007bff;
+  background-color: #001f7a;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -198,6 +198,9 @@
   transition: background-color 0.2s ease;
 }
 
-.btn-speak:hover {
-  background-color: #0056b3;
+@media (max-width: 425px) {
+  .result-table th, .result-table td {
+    font-size: 10px;
+    padding: 8px 4px;
+  }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import Header from './components/Header';
 import Home from './components/Home';
 import QuestionForm from './components/QuestionForm';
@@ -13,6 +13,10 @@ import './App.css';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
+
+    useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
 
   const navigate = (page) => {
     setCurrentPage(page);

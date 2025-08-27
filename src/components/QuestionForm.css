@@ -52,7 +52,6 @@
 
 .inquiry-form {
   padding: 3rem;
-  display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   max-width: none;
@@ -77,6 +76,8 @@
 .form-group label::after {
   content: '';
 }
+
+.form-group input {max-width:500px;}
 
 /* 문의 유형 버튼들 */
 .inquiry-types {

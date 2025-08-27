@@ -111,3 +111,17 @@
   margin-bottom: 5px;
   transition: background 0.2s;
 }
+
+@media (max-width: 768px) {
+  .login-corp-box {
+    width: 80vw; /* 모바일에서는 너비를 80%로 조정 */
+  }
+
+  .login-corp-box h1 {font-size:32px;}
+}
+
+@media (max-width: 1024px) {
+  .login-corp-box {
+    width: 60vw; /* 더 작은 화면에서는 너비를 90%로 조정 */
+  }
+}

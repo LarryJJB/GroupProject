@@ -56,7 +56,7 @@ const Join = ({ navigate }) => {
             {/* 서버 스펙에 맞게 아이디/비밀번호만 전송 */}
             <input
               type="text"
-              placeholder="아이디 (영문+숫자+특수문자)"
+              placeholder="아이디"
               value={id}
               onChange={e => setId(e.target.value)}
               required
