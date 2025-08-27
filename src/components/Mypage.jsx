@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import './MyPage.css'; 
 import { FiGrid, FiBarChart2, FiMessageSquare, FiSettings, FiLogOut, FiMenu , FiChevronDown , FiChevronUp } from 'react-icons/fi';
 
-const MyPage = ({ navigate, onLogout }) => {
+const MyPage = ({ onLogout }) => {
   const [activeMenu, setActiveMenu] = useState('dashboard');
   const [openInquiry, setOpenInquiry] = useState(null);
   const [isSidebarCollapsed, setSidebarCollapsed] = useState(true);

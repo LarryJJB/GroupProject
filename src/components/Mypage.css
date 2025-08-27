@@ -345,6 +345,7 @@
   /* 토글 버튼을 보여줌 */
   .sidebar-toggle-button {
     display: block;
+    top: 60px;
   }
 
   /* 사이드바를 화면 왼쪽 바깥으로 숨김 */

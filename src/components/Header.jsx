@@ -78,7 +78,6 @@ const Header = ({ navigate , isLoggedIn}) => {
         </div>
         
         <div className="header-icons">
-          <div className="icon-button"><FaGlobe /></div>
           <div className="icon-button" onClick={handleAuthRedirect}><FaUserCircle /></div>
         </div>
 

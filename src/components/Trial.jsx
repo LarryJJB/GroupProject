@@ -3,7 +3,7 @@ import "./Trial.css";
 import { FiAlertTriangle } from 'react-icons/fi';
 import { FaVolumeUp } from 'react-icons/fa';
 
-export default function Trial({ navigate }) {
+export default function Trial() {
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState("");
   const [isLoading, setIsLoading] = useState(false);
