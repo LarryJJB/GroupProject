@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Login.css';
-import client from '../api/client';
+import client from '../api/client'; // baseURL 설정된 axios 인스턴스
 
 const Login = ({ navigate }) => {
   const [id, setId] = useState('');
@@ -8,7 +8,7 @@ const Login = ({ navigate }) => {
   const [saveId, setSaveId] = useState(false);
   const [error, setError] = useState('');
 
-  const savedIdKey = 'savedUserId'; 
+  const savedIdKey = 'savedUserId';
 
   useEffect(() => {
     const saved = localStorage.getItem(savedIdKey);
@@ -21,31 +21,36 @@ const Login = ({ navigate }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
+
     if (!id || !pw) {
       setError('아이디와 비밀번호를 입력하세요.');
       return;
     }
 
+    // Login.jsx (핵심 부분만)
     try {
-      // 백엔드 스펙: /auth/login  { username, password } → { success:true, token }
-      const res = await client.post('/auth/login', {
-        username: id,
-        password: pw,
-      });
+      const res = await client.post('/auth/login', { username: id, password: pw });
 
-      if (res.data?.success && res.data?.token) {
-        // 아이디 저장 옵션
+      const token = res?.data?.token;
+      const ok = res?.data?.success === true && typeof token === 'string' && token.length > 20;
+
+      if (ok) {
         if (saveId) localStorage.setItem(savedIdKey, id);
         else localStorage.removeItem(savedIdKey);
 
-        // 토큰 저장
-        localStorage.setItem('token', res.data.token);
-        // 필요하면 사용자명도 저장해두기
-        localStorage.setItem('username', id);
+        localStorage.setItem('token', token);
+        // 토큰 payload에서 유저정보 추출 (id, username, role 등)
+        try {
+          const payload = JSON.parse(atob(token.split('.')[1]));
+          if (payload?.username) localStorage.setItem('username', payload.username);
+          if (payload?.role) localStorage.setItem('role', payload.role);
+          if (payload?.id) localStorage.setItem('userId', payload.id);
+        } catch {}
 
-        navigate('home');
+        alert('로그인 성공!');           // ← 확실한 피드백
+        navigate('home', { state: { justLoggedIn: true } });  // ← 상태도 같이 넘김
       } else {
-        setError(res.data?.message || '로그인 실패! 아이디/비밀번호를 확인하세요.');
+        setError(res?.data?.message || '로그인 실패! 아이디/비밀번호를 확인하세요.');
       }
     } catch (err) {
       const msg = err?.response?.data?.message || '서버 오류! 잠시 후 다시 시도해 주세요.';
@@ -62,9 +67,9 @@ const Login = ({ navigate }) => {
           <form onSubmit={handleLogin}>
             <input
               type="text"
-              placeholder='아이디'
+              placeholder="아이디"
               value={id}
-              onChange={e => setId(e.target.value)}
+              onChange={(e) => setId(e.target.value)}
               autoFocus
               required
             />
@@ -72,7 +77,7 @@ const Login = ({ navigate }) => {
               type="password"
               placeholder="비밀번호"
               value={pw}
-              onChange={e => setPw(e.target.value)}
+              onChange={(e) => setPw(e.target.value)}
               required
             />
 
@@ -91,7 +96,9 @@ const Login = ({ navigate }) => {
           </form>
 
           <div className="login-link-area">
-            <button onClick={() => navigate('join')} className="join-btn">회원가입</button>
+            <span>비밀번호를 잊으셨나요?</span>
+            <span className="divider">|</span>
+            <span onClick={() => navigate('join')} className="join-link">회원가입</span>
           </div>
         </div>
       </div>

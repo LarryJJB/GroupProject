@@ -1,64 +1,85 @@
-import './Join.css';
-import React, { useState } from 'react';
-import client from '../api/client'; // axios 인스턴스
+import React, { useState, useEffect } from 'react';
+import './Login.css';
+import client from '../api/client';
 
-const Join = ({ navigate }) => {
-  const [name, setName] = useState('');
+const Login = ({ navigate }) => {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
-  const [pw2, setPw2] = useState('');
-  const [agreeTerms, setAgreeTerms] = useState(false);
-  const [agreePrivacy, setAgreePrivacy] = useState(false);
+  const [saveId, setSaveId] = useState(false);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const savedIdKey = 'savedUserId';
 
-    if (!agreeTerms || !agreePrivacy) {
-      alert('약관 및 개인정보 동의는 필수입니다.');
-      return;
+  useEffect(() => {
+    const saved = localStorage.getItem(savedIdKey);
+    if (saved) {
+      setId(saved);
+      setSaveId(true);
     }
-    if (pw !== pw2) {
-      alert('비밀번호가 일치하지 않습니다.');
+  }, []);
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError('');
+    if (!id || !pw) {
+      setError('아이디와 비밀번호를 입력하세요.');
       return;
     }
 
     try {
-      // 백엔드 /auth/register 스펙: { username, password, name }
-      await client.post('/auth/register', {
+      setLoading(true);
+      const res = await client.post('/auth/login', {
         username: id,
         password: pw,
-        name,
       });
 
-      alert('회원가입 성공!');
-      navigate('login');
+      console.log('[LOGIN RES]', res.status, res.data);
+
+      // ⚠️ 성공 조건을 엄격히: 토큰이 문자열인지 확인
+      const token = res?.data?.token;
+      const ok = res?.data?.success === true && typeof token === 'string' && token.length > 20;
+
+      if (ok) {
+        if (saveId) localStorage.setItem(savedIdKey, id);
+        else localStorage.removeItem(savedIdKey);
+
+        localStorage.setItem('token', token);
+        localStorage.setItem('username', id);
+
+        // 토큰이 실제 저장됐는지 double-check
+        const stored = localStorage.getItem('token');
+        if (!stored) {
+          setError('토큰 저장에 실패했습니다. 브라우저 저장소 설정을 확인해주세요.');
+          return;
+        }
+
+        navigate('home'); // 성공시에만 이동
+      } else {
+        setError(res?.data?.message || '로그인 실패! 아이디/비밀번호를 확인하세요.');
+      }
     } catch (err) {
-      // 백엔드 표준 에러 포맷: { success:false, code, message }
-      const msg = err?.response?.data?.message || '서버 오류 또는 네트워크 오류';
-      alert(msg);
+      console.log('[LOGIN ERR]', err?.response?.status, err?.response?.data);
+      const msg = err?.response?.data?.message || '서버 오류! 잠시 후 다시 시도해 주세요.';
+      setError(msg);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div>
-      <div className="join-corp-bg">
-        <div className="join-corp-box">
+      <div className="login-corp-bg">
+        <div className="login-corp-box">
           <h1>NUNBOM</h1>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="이름"
-              value={name}
-              onChange={e => setName(e.target.value)}
-              required
-            />
 
-            {/* 서버 스펙에 맞게 아이디/비밀번호만 전송 */}
+          <form onSubmit={handleLogin}>
             <input
               type="text"
               placeholder="아이디"
               value={id}
               onChange={e => setId(e.target.value)}
+              autoFocus
               required
             />
             <input
@@ -68,41 +89,32 @@ const Join = ({ navigate }) => {
               onChange={e => setPw(e.target.value)}
               required
             />
-            <input
-              type="password"
-              placeholder="비밀번호 확인"
-              value={pw2}
-              onChange={e => setPw2(e.target.value)}
-              required
-            />
 
-            <div className="terms">
-              <label>
-                <input
-                  type="checkbox"
-                  checked={agreeTerms}
-                  onChange={e => setAgreeTerms(e.target.checked)}
-                  required
-                />
-                약관 동의
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={agreePrivacy}
-                  onChange={e => setAgreePrivacy(e.target.checked)}
-                  required
-                />
-                개인정보처리방침 동의
-              </label>
+            <div className="save-id-section">
+              <input
+                type="checkbox"
+                id="saveId"
+                checked={saveId}
+                onChange={() => setSaveId(!saveId)}
+              />
+              <label htmlFor="saveId">아이디 저장</label>
             </div>
 
-            <button className="main-btn" type="submit">회원가입</button>
+            {error && <div className="login-error">{error}</div>}
+            <button className="main-loginbtn" type="submit" disabled={loading}>
+              {loading ? '로그인 중...' : '로그인'}
+            </button>
           </form>
+
+          <div className="login-link-area">
+            <span>비밀번호를 잊으셨나요?</span>
+            <span className="divider">|</span>
+            <span onClick={() => navigate('join')} className="join-link">회원가입</span>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default Join;
+export default Login;
