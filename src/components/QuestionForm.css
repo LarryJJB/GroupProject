@@ -111,6 +111,7 @@
 
 /* 입력 필드 - PC 최적화 */
 .form-group input[type="text"],
+.form-group input[type="password"],
 .form-group textarea {
   width: 100%;
   padding: 1rem;
@@ -125,6 +126,7 @@
 }
 
 .form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: #001f7a;
