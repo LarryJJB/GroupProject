@@ -1,17 +1,34 @@
 import React from 'react';
 import './Promo.css';
-import { FiCpu, FiBarChart2, FiCalendar } from 'react-icons/fi';
+import PromoVideo from '../assets/promovideo.mp4'
+import { FaPlay } from "react-icons/fa";
+
 
 const Promo = () => {
+  
   return (
     <div className="promo-container">
       
-      <section className="promo-video-placeholder">
+      {/* --- (수정) 영상 섹션 --- */}
+      <section className="promo-video-section">
+        { /* - src: 여기에 영상 파일의 경로를 넣어주세요.
+               public 폴더에 video.mp4 파일을 넣었다면 '/video.mp4'가 됩니다.
+          - autoPlay: 페이지가 열리면 영상이 자동으로 재생됩니다.
+          - loop: 영상이 끝나면 계속해서 반복 재생됩니다.
+          - muted: 소리를 끈 상태로 재생합니다. (자동 재생을 위해 필수)
+          - playsInline: 모바일에서 전체 화면이 아닌, 현재 위치에서 재생되도록 합니다.
+        */}
+        <video 
+          className='promo-video'
+          src = {PromoVideo}
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        >
+          사용 중인 브라우저에서는 영상을 재생할 수 없습니다.
+        </video>
         <div className="video-overlay"></div>
-        <div className="video-content">
-          <div className="play-button">▶</div>
-          <span>(홍보 영상이 여기에 표시됩니다)</span>
-        </div>
       </section>
 
       <section className="sub-section">
