@@ -11,13 +11,6 @@ const Promo = () => {
       
       {/* --- (수정) 영상 섹션 --- */}
       <section className="promo-video-section">
-        { /* - src: 여기에 영상 파일의 경로를 넣어주세요.
-               public 폴더에 video.mp4 파일을 넣었다면 '/video.mp4'가 됩니다.
-          - autoPlay: 페이지가 열리면 영상이 자동으로 재생됩니다.
-          - loop: 영상이 끝나면 계속해서 반복 재생됩니다.
-          - muted: 소리를 끈 상태로 재생합니다. (자동 재생을 위해 필수)
-          - playsInline: 모바일에서 전체 화면이 아닌, 현재 위치에서 재생되도록 합니다.
-        */}
         <video 
           className='promo-video'
           src = {PromoVideo}

@@ -38,9 +38,9 @@ const Intro = () => {
         </div>
         <ul className="problem-list">
           <li>
-            라벨 오류 환자 피해 연간 3,000건 이상
+            라벨·포장 문제는 약물오류의 큰 비중(최대 33%)을 차지
             <a
-              href="https://www.ismp.org/resources/medication-errors"
+              href="https://www.fda.gov/files/drugs/published/Safety-Considerations-for-Product-Design-to-Minimize-Medication-Errors-Guidance-for-Industry.pdf?"
               target="_blank"
               rel="noopener noreferrer"
               style={{ marginLeft: '6px', color: ICON_COLOR }}
@@ -49,9 +49,9 @@ const Intro = () => {
             </a>
           </li>
           <li>
-            리콜 1건당 수십억 원 소요
+            FDA 의약품 리콜 중 ‘라벨링 이슈’ 비중 약8%
             <a
-              href="https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts"
+              href="https://www.sciencedirect.com/science/article/pii/S1359644624001181?"
               target="_blank"
               rel="noopener noreferrer"
               style={{ marginLeft: '6px', color: ICON_COLOR }}
@@ -60,9 +60,9 @@ const Intro = () => {
             </a>
           </li>
           <li>
-            육안 검사 결함 최대 15% 누락
+            국내(대한민국)에서도 라벨/포장 오류로 인한 회수 사례가 최근 수년간 지속적으로 발생
             <a
-              href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5051234/"
+              href="https://www.mfds.go.kr/brd/m_99/down.do?brd_id=ntc0021&data_tp=A&file_seq=2&seq=49142&utm_source=chatgpt.com"
               target="_blank"
               rel="noopener noreferrer"
               style={{ marginLeft: '6px', color: ICON_COLOR }}
